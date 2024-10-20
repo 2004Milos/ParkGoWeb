@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+.head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-sizing: border-box; /* Ensure padding doesn't affect the total width */
+}
+.garage-image {
+    position: absolute;
+    bottom:0;
+    width: 48%;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); 
+    height: auto;
+    z-index: 1; /* Ensure it appears above the car */
+    display: none; /* Initially hide the garage */
+}
+
+
+      .scroll-indicator {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+
+      .scroll-indicator.hide {
+        opacity: 0;
+      }
+
+      .car-image {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transition: left 0.2s ease;
+        width: "45%"; /* Set the size of the car */
+        display: none; /* Initially hide the car */
+        left: "-50%"; /* Move the car off-screen initially */
+        
+    z-index: 0; /* Make sure it's behind the garage */
+      }
+
+      .second-section {
+          height: 100vh; /* Full viewport height */
+          background-color: #ffffff; /* Optional background color */
+          padding: 40px;
+          text-align: center;
+      }
+
+.statistics {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat h3 {
+    color: #007bff;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.stat p {
+    color: #333;
+    font-size: 1.2em;
+}
+
+.app-link {
+    display: inline-block;
+    margin-top: 30px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+.text-wrapper-2{
+      transform: translateX(10%); 
+    }
+
+    </style>
+    <script>
+      let scrollValue = 0;
+const threshold = 50; // Set threshold for hiding the indicator and showing the car
+let maxScrollValue = 12000; // Maximum scroll value to define the range for car movement
+let prevent = true;
+
+let horizontalChunk = 3700;
+
+let i = 0;
+window.addEventListener('wheel', function(event) {
+    // Prevent the default scroll behavior
+    if (prevent) event.preventDefault();
+
+    const carImage = document.querySelector('.car-image');
+    const garageImage = document.querySelector('.garage-image');
+    const newContentSection = document.querySelector('.second-section');
+    let delta = event.deltaY;
+
+    // Update the scroll value and clamp it between 0 and maxScrollValue
+    scrollValue = Math.min(Math.max(0, scrollValue + delta), horizontalChunk * 4.4 +window.innerHeight);
+
+    if(prevent){
+    // Handle scroll indicator visibility
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    const arr1 = document.querySelector('#arr1');
+    const arr2 = document.querySelector('#arr2');
+    if (scrollValue > threshold) {
+        scrollIndicator.classList.add('hide');
+        arr1.style.display = 'none';
+        arr2.style.display = 'none';
+        carImage.style.display = 'block';
+        garageImage.style.display = 'block';
+    } else {
+        carImage.style.display = 'none';
+        scrollIndicator.classList.remove('hide');
+        arr1.style.display = 'block';
+        arr2.style.display = 'block';
+        garageImage.style.display = 'none';
+        newContentSection.style.display = 'none';
+    }
+
+    // Move the car based on the scroll value
+    let movePercentage = (scrollValue / maxScrollValue) * 100;
+    carImage.style.left = -50 + movePercentage + '%';
+  }
+
+    // Update garage image
+    if (i == 90) {
+        let sorce = garageImage.src;
+        if (scrollValue > threshold && scrollValue < threshold + horizontalChunk && sorce != "img/Garaza1.png") {
+            garageImage.src = "img/Garaza1.png";
+            prevent = true;
+        } else if (scrollValue > horizontalChunk && scrollValue < threshold + horizontalChunk * 2 && sorce != "img/Garaza2.png") {
+            garageImage.src = "img/Garaza2.png";
+            prevent = true;
+        } else if (scrollValue > horizontalChunk * 2 && scrollValue < threshold + horizontalChunk * 3 && sorce != "img/Garaza3.png") {
+            garageImage.src = "img/Garaza3.png";
+            prevent = true;
+        } else if (scrollValue > horizontalChunk * 3 && scrollValue < threshold + horizontalChunk * 4.4 && sorce != "img/Garaza4.png") {
+            garageImage.src = "img/Garaza4.png";
+            prevent = true;
+        } else if (prevent == true) {
+            prevent = false;
+            newContentSection.style.display = 'block'; // Display the new content section
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }); // Smooth scroll to the new content
+        }
+        i = 0;
+    } else {
+        i++;
+    }
+
+    // Handle scrolling back to the original content
+    if (!prevent && scrollValue < threshold + horizontalChunk * 4.45 ) {
+        newContentSection.style.display = 'none';
+        window.scrollTo({ top: 0, behavior:"smooth" });
+        prevent = true;
+    }
+}, { passive: false });
+
+    </script>
+  </head>
+  <body>
+    <div class="park">
+      <div class="park-golandingpage">
+        <div class="head">
+        <img class="park-go" src="img/park-go.svg" />
+        <img class="vector" src="img/vector.svg" />
+        <div class="overlap-group">
+          <a href = "app.html">
+          <div class="text-wrapper">Aplikacija</div>
+          </a>
+        </div>
+        
+        <a href = "mailto: info@starktechnologies.co">
+        <div class="overlap">
+            <div class="div">Kontaktirajte nas</div>
+            
+        </div>            </a>
+        <div class="text-wrapper-2">Uđeš. Parkiraš. Izađeš.</div>
+      </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator text-wrapper-3">SCROLL</div>
+
+        <!-- Skoda image initially hidden but will move based on scroll -->
+        <!-- Skoda image initially hidden but will move based on scroll -->
+        
+          <img class="garage-image" src="img/Garaza1.png" />
+          <img class="car-image" src="img/skoda.png" />
+        
+
+
+        <p class="zaboravite-na-pla">
+          Zaboravite na plaćanja, čekanja u redu i tikete. Naš revolucionarni Park&amp;Go sistem omogućava da uživate u
+          jednostavnom i besprekornom iskustvu parkiranja.
+        </p>
+        <img id="arr1" class="arrow" src="img/arrow-57.svg" />
+        <img id="arr2" class="img" src="img/arrow-57.svg" />
+      </div>
+    </div>
+
+
+    <!-- New content section -->
+<div class="second-section">
+
+  <!--statistika-->
+  <img src = "img/stats.png" style="width: 95%; height: auto; margin-top: 5%; margin-bottom: 3%; padding-left: 4%; padding-right: 4%; margin-top: 25%;"/>
+  <a href = "app.html">
+
+  <img src = "img/pogledajteapp.png" style="width: 21%; height: auto;  transform: translateX(150%); margin-bottom: 2%;"/>
+  </a>
+</div>
+
+  </body>
+</html>

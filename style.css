@@ -1,0 +1,137 @@
+.park {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.park .park-golandingpage {
+  background-color: #ffffff;
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+}
+
+.park .park-go {
+  position: absolute;
+  width: 171px;
+  height: 36px;
+  top: 84px;
+  left: 222px;
+}
+
+.park .vector {
+  position: absolute;
+  width: 53px;
+  height: 58px;
+  top: 73px;
+  left: 141px;
+}
+
+.park .overlap-group {
+  width: 150px;
+  left: 1405px;
+  position: absolute;
+  height: 58px;
+  top: 73px;
+  border-radius: 30px;
+}
+
+.park .text-wrapper {
+  position: absolute;
+  height: 23px;
+  top: 17px;
+  left: 33px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -0.41px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.park .overlap {
+  width: 181px;
+  left: 1596px;
+  background: linear-gradient(180deg, rgb(88.19, 179.93, 255) 0%, rgb(42, 50, 214) 100%);
+  position: absolute;
+  height: 58px;
+  top: 73px;
+  border-radius: 30px;
+}
+
+.park .div {
+  position: absolute;
+  height: 23px;
+  top: 17px;
+  left: 17px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -0.41px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.park .text-wrapper-2 {
+  position: absolute;
+  width: 1581px;
+  top: 299px;
+  left: 169px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 120px;
+  text-align: center;
+  letter-spacing: -0.41px;
+  line-height: 100px;
+}
+
+.park .text-wrapper-3 {
+  position: absolute;
+  width: 495px;
+  top: 762px;
+  left: 701px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #525252;
+  font-size: 120px;
+  text-align: center;
+  letter-spacing: -0.41px;
+  line-height: 100px;
+}
+
+.park .zaboravite-na-pla {
+  position: absolute;
+  width: 1152px;
+  top: 439px;
+  left: 370px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 30px;
+  text-align: center;
+  letter-spacing: -0.41px;
+  line-height: 40px;
+}
+
+.park .arrow {
+  top: 798px;
+  left: 560px;
+  position: absolute;
+  width: 110px;
+  height: 63px;
+}
+
+.park .img {
+  top: 799px;
+  left: 1251px;
+  position: absolute;
+  width: 110px;
+  height: 63px;
+}

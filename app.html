@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="globals.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .head {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .head img {
+      max-height: 50px;
+    }
+
+    .overlap-group,
+    .overlap {
+      margin-right: 20px;
+    }
+
+    .row-display {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-top: 23%; /* Adjust this as needed */
+    }
+
+    .phoneimg {
+      margin: 0 -6.5%; /* Negative margin for overlap */
+      width: 40%;
+    }
+
+    .second-section {
+      height: 100vh;
+      background-color: #ffffff;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .statistics {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .stat h3 {
+      color: #007bff;
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: #333;
+      font-size: 1.2em;
+    }
+
+    .app-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    .text-wrapper-2{
+      transform: translateX(10%); 
+    }
+  </style>
+</head>
+<body>
+  <div class="park">
+    <div class="park-golandingpage">
+      <div class="head">
+        <img class="park-go" src="img/park-go.svg" alt="Park Go Logo" />
+        <img class="vector" src="img/vector.svg" alt="Vector" />
+        <div class="overlap-group">
+          <a href="index.html" class="text-wrapper">Home</a>
+        </div>
+        <a href = "mailto: info@starktechnologies.co">
+          <div class="overlap">
+              <div class="div">Kontaktirajte nas</div>
+        </div>
+      </a>
+        <div class="text-wrapper-2">Jednostavno i Brzo.</div>
+      </div>
+      <div class="row-display">
+        <img class="phoneimg" src="img/pg.png" alt="Phone Image 1">
+        <img class="phoneimg" src="img/Pg1.png" alt="Phone Image 2">
+        <img class="phoneimg" src="img/PG2.png" alt="Phone Image 3">
+        <img class="phoneimg" src="img/PG4.png" alt="Phone Image 4">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
